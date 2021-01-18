@@ -10,3 +10,5 @@ import androidx.room.RoomDatabase
 abstract class AppDatabase : RoomDatabase() {
     abstract fun logDao(): LogDao
 }
+
+const val DB_NAME = "logging.db"

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.daggerhilt.R
+import com.example.daggerhilt.data.LoggerDataSource
 import com.example.daggerhilt.navigator.AppNavigator
 import com.example.daggerhilt.navigator.Screen
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,9 +16,11 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ButtonsFragment : Fragment() {
 
-
     @Inject
     lateinit var appNavigator: AppNavigator
+
+    @Inject
+    lateinit var loggerDataSource: LoggerDataSource
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,15 +37,15 @@ class ButtonsFragment : Fragment() {
 
     private fun setListeners() {
         button1.setOnClickListener {
-
+            loggerDataSource.addLog("Interaction with 'Button 1'")
         }
 
         button2.setOnClickListener {
-
+            loggerDataSource.addLog("Interaction with 'Button 2'")
         }
 
         button3.setOnClickListener {
-
+            loggerDataSource.addLog("Interaction with 'Button 3'")
         }
 
         allLogs.setOnClickListener {
@@ -50,10 +53,7 @@ class ButtonsFragment : Fragment() {
         }
 
         deleteLogs.setOnClickListener {
-
+            loggerDataSource.deleteAllLogs()
         }
-
     }
-
-
 }
