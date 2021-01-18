@@ -4,14 +4,13 @@ import androidx.fragment.app.FragmentActivity
 import com.example.daggerhilt.R
 import com.example.daggerhilt.ui.ButtonsFragment
 import com.example.daggerhilt.ui.LogsFragment
-import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
 /**
  * Navigator implementation.
  */
 class AppNavigatorImpl @Inject constructor(
-    @ActivityContext val activity: FragmentActivity
+    private val activity: FragmentActivity
 ) : AppNavigator {
 
     override fun navigateTo(screen: Screen) {
